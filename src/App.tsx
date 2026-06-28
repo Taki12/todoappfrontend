@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? ''
+
 interface Todo {
   id: number
   title: string
@@ -16,7 +18,7 @@ function App() {
 
   const fetchTodos = useCallback(async () => {
     try {
-      const res = await fetch('/api/todos')
+      const res = await fetch(`${API_BASE}/api/todos`)
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data: Todo[] = await res.json()
       setTodos(data)
@@ -59,7 +61,7 @@ function App() {
 
   const toggleTodo = async (id: number) => {
     try {
-      const res = await fetch(`/api/todos/${id}`, { method: 'PATCH' })
+      const res = await fetch(`${API_BASE}/api/todos/${id}`, { method: 'PATCH' })
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const updated: Todo = await res.json()
       setTodos(prev => prev.map(t => (t.id === id ? updated : t)))
@@ -71,7 +73,7 @@ function App() {
 
   const deleteTodo = async (id: number) => {
     try {
-      const res = await fetch(`/api/todos/${id}`, { method: 'DELETE' })
+      const res = await fetch(`${API_BASE}/api/todos/${id}`, { method: 'DELETE' })
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       setTodos(prev => prev.filter(t => t.id !== id))
     } catch (err) {
