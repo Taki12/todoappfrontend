@@ -2,6 +2,5 @@ node_modules/
 dist/
 *.timestamp-*.mjs
 .env
-.env.local
-.env.*.local
+.env.*
 *.log
