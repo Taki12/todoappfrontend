@@ -42,7 +42,7 @@ function App() {
 
     setAdding(true)
     try {
-      const res = await fetch('/api/todos', {
+      const res = await fetch(`${API_BASE}/api/todos`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title }),
