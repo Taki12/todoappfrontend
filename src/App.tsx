@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 
-const API_BASE = 'https://todoappbackend-xs0h-preprod-preprod-sat-va-it.moltern.com'
+const API_BASE = import.meta.env.VITE_API_BASE_URL as string
 
 interface Todo {
   id: number
