@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 
-const API_BASE = 'https://todoappbackend-cq8x-preprod-preprod-sat-va-it.moltern.com'
+const API_BASE = 'https://todoappbackend-xs0h-preprod-preprod-sat-va-it.moltern.com'
 
 interface Todo {
   id: number
